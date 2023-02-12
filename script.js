@@ -5,18 +5,33 @@ if(length < 8) {
   alert("Password too short! Please refresh page");
 } else if(length > 128) {
   alert("Password too long! Please refresh page");
+} else if(!(8 <= length <= 128)) {
+  alert("Enter a number! Please refresh page");
 } else {
   var upperCase = prompt("Would you like to include uppercase letters? (Y/N)");
-  var lowerCase = prompt("Would you like to include lowercase letters? (Y/N)");
-  var numbers = prompt("Would you like to include numbers? (Y/N)");
-  var specialCharacters = prompt("Would you like to include special characters? (Y/N)");
+  upperCase = upperCase.toLowerCase();
+  if(upperCase != "y" && upperCase != "n") {
+    alert("Enter Y or N! Please refresh page");
+  } else {
+    var lowerCase = prompt("Would you like to include lowercase letters? (Y/N)");
+    lowerCase = lowerCase.toLowerCase();
+    if(lowerCase != "y" && lowerCase != "n") {
+      alert("Enter Y or N! Please refresh page");
+    } else {
+      var numbers = prompt("Would you like to include numbers? (Y/N)");
+      numbers = numbers.toLowerCase();
+      if(numbers != "y" && numbers != "n") {
+        alert("Enter Y or N! Please refresh page");
+      } else {
+        var specialCharacters = prompt("Would you like to include special characters? (Y/N)");     
+        specialCharacters = specialCharacters.toLowerCase();
+        if(specialCharacters != "y" && specialCharacters != "n") {
+          alert("Enter Y or N! Please refresh page");
+        }
+      }
+    }
+  }
 }
-
-// Ignore Case Sensitivity in Generate Password
-upperCase = upperCase.toLowerCase();
-lowerCase = lowerCase.toLowerCase();
-numbers = numbers.toLowerCase();
-specialCharacters = specialCharacters.toLowerCase();
 
 // Write password to the #password input
 function writePassword() {
